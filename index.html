@@ -259,6 +259,17 @@
 
 	// console.log(firstChar);
 
+var now = new Date();
+console.log(now);
+
+var theDay = now.getDay();   // Return the numbered day of the week starting with Sunday(0)
+
+// Array practice
+var daysInEnglish = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var theDayInEnglish = daysInEnglish[theDay];
+
+
+
 function throwDie() {
 	var randomDie = Math.round(Math.random() * 5 + 1);  // Random number between 1 and 6
 	document.images["myDie"].src = "d" + randomDie + ".gif";
@@ -273,35 +284,82 @@ function throwDice() {
 	console.log(randomDie1);
 	console.log(randomDie2);
 }
+var dragonLife = 12;
+var yourLife = 6;
+var FLAME = 3;
+var STICK = 1;
+var SWORD = 3;
+var BOMB = 6;
+// var dragon = document.getElementById("dragon");
+// var user = document.getElementById("user");
 
-function attackDragon() {
+function attackDragon(weapon) {
+	var user = document.getElementById("user");
+	var dragon = document.getElementById("dragon");
 	var randomDie1 = Math.round(Math.random() * 5 + 1); 
 	var randomDie2 = Math.round(Math.random() * 5 + 1); // Random number between 1 and 6
 	var total = randomDie1 + randomDie2;
+	var result = document.getElementById("yourRoll");
+
 	document.images["myDie"].src = "d" + randomDie1 + ".gif";
 	document.images["myDie2"].src = "d" + randomDie2 + ".gif";
 	console.log(randomDie1);
 	console.log(randomDie2);
 
+	switch(weapon) {
+		case "stick":
+			if(total > 4) {
+				result.innerHTML = "I think you made him angry!!";
+				dragonLife -= STICK;
+			} else {
+				result.innerHTML = "You missed";
+				yourLife -= FLAME;
+			}
+		break;
+		case "sword":
+			if(total > 6) {
+				result.innerHTML = "You cut him!!";
+				dragonLife -= SWORD;
+			} else {
+				result.innerHTML = "You missed!";
+				yourLife -= FLAME;
+			}
+		break;
+		case "bomb":
+			if(total > 10) {
+				result.innerHTML = "BOOM!!That musta hurt!!";
+				dragonLife -= BOMB;
+			} else {
+				result.innerHTML = "You missed!";
+				yourLife -= FLAME;
+			}
+		break;
+	}
   // 	   Print out the total role as a number (innerHTML)
   //       Check and see if the number (total) is >9
   //           If so, put the message in the #message
   //           If not, put a different message the #message
   //       Add a button... "run away"
   //           if clicked on, add a message to #message
-	var result = document.getElementById("yourRoll");
+
 	console.log(total);
 
-	if(total > 9) {
-		result.innerHTML = "You slayed the beast!!";
-	} else {
-		result.innerHTML = "You are TOAST!";
+	user.innerHTML = yourLife;
+	dragon.innerHTML = dragonLife;
+
+	if(yourLife <= 0) {
+		result.innerHTML = "You're DEAD buddy!!";
+	} 
+	if(dragonLife <=0) {
+		result.innerHTML = "You are AMAZING!! You slayed the dragon!";
 	}
 }
 
 function runAway() {
 	var result = document.getElementById("yourRoll");
 	result.innerHTML = "You got away!";
+	yourLife = 6;
+	dragonLife = 12
 }
 </script>
 <div>
@@ -314,15 +372,19 @@ function runAway() {
 
 <div id="the-fight" style="text-align: center;">
 	<img src="dragon.png">
-	<div id="dragon" style="font-size: 30px;">You have encountered a dragon!</div>
+	<div id="dragon-title" style="font-size: 30px;">You have encountered a dragon!</div>
 	<div>
 		<img src="d1.gif" name="myDie">
 		<img src="d1.gif" name="myDie2" alt="">
 	</div>
-		<div id="message" style="font-size:20px; margin-top: 20px;">You must roll higher than a 9, to defeat the dragon!</div>
-		<input type="button" onclick="attackDragon()" value="Fight!!">
+		<div id="message" style="font-size:20px; margin-top: 20px;">You must use a weapon to defeat the dragon!</div>
+		<input type="button" onclick="attackDragon('stick')" value="Hit em with a stick!!">
+		<input type="button" onclick="attackDragon('sword')" value="Use your sword!!">
+		<input type="button" onclick="attackDragon('bomb')" value="Throw a bomb!!">
 		<div id="yourRoll" style="font-size:24px;">Lets Fight!</div>
 		<br />
+		<div>YOUR LIFE: <span id="user">6</span></div>
+		<div>DRAGON LIFE: <span id="dragon">12</span></div>
 		<input type="button" onclick="runAway()" value="Run Away!!">
 </div>
 	
