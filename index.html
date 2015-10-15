@@ -1,0 +1,329 @@
+<script type="text/javascript">
+	
+	// A property has no ()
+	// A function/method has ()
+
+	// alert("Hello world");
+	// document.write("<h1>Hello peeps</h1>");
+	// console.log("Whats up?");
+
+	// Variables
+	// String = letters & numbers, meant for printer or user experience
+	// var fullName = "Liam Wyatt";
+	// // Integer = number with no decimal points
+	// var myAge = 28;
+	// // Float = number with a decimal 
+	// var floatNumber = 12.3;
+	// // Force to an Integer or Float i.e. a number
+	// var forceNumber = Number(floatNumber);
+	// // Parse to Integer
+	// var parseInteger = parseInt(floatNumber);
+	// // Parse to Float
+	// var parseFloat = parseFloat(myAge);
+	// // Make value a String
+	// var myString = myAge.toString();
+
+	// var theTruth = true;
+	// var theLie = false;
+	// var wannabeTruth = "truth";
+	// var wannabeTruth2 = 1;
+
+	// // Check type of Variables
+	// document.write(typeof theTruth);
+	// // Increment Integer Variables
+	// myAge++;
+	// // Decrement Integer Variables
+	// myAge--;
+
+	// // Modular gives the remainder of the value
+	// var theNumberTwo = 8 % 2;
+
+	// Prompts
+	// var name = prompt("What's your name?");
+	// var nameWithDefualt = prompt("Heads or Tails?","Heads");
+
+	// conditionals
+
+	// var numberOfWills;
+	// var question = "Whats your name";
+	// var defualtAns = "Will";
+	// var name = prompt(question, defualtAns);
+	// // var name2 = prompt(question, defualtAns);
+	// if(name === "Will") {
+	// 	alert("Thats my name 2!!");
+	// 	numberOfWills++;
+	// } else {
+	// 	alert("Nice to meet you, not Will named " + name);
+	// 	numberOfWills--;
+	// }
+
+	// alert(numberOfWills);
+
+	//////////////////////////////////////////////////
+	// classwork
+	//Set up a prompt with a math question
+    //If the user gets it right, congratulate them
+    //If wrong, alert them of the correct answer
+
+    //Give them two questions
+    //if they user gets both right, alert them
+    //if they get one right, alert them
+    //if they get none right, console them.
+
+	// var answer = prompt("What is 2 + 2?");
+	// answer = Number(answer);
+
+	// if (answer === 4) {
+	// 	alert("You are very smart!");
+	// } else {
+	// 	alert("That's nice...But it's WRONG!  The answr is 2.");
+	// }
+
+	// var answer2 = prompt("What is 2 * 8?");
+	// answer2 = Number(answer2);
+
+	// if (typeof(answer) === "number" && typeof(answer2) === "number") {
+	// 	if (answer === 4 && answer2 === 16) {
+	// 		alert("Very Smart!  You got both answers right!");
+	// 	} else if (answer === 4 || answer2 === 16) {
+	// 		alert("One outta two isn't bad..");
+	// 	} else {
+	// 		alert("SMH it's ok...I'm sure you will learn math one day.");
+	// 	}
+	// } else {
+	// 	alert("You must enter in a number fool!");
+	// }
+
+	// var lotteryVar = 3;
+	// var yourLotteryTicket = 201239829030333;
+	// if (yourLotteryTicket !== lotteryVar) {
+	// 	alert("You didn't win");
+	// }
+
+	// var randomNumber = Math.random(); // Will generate a 16 digit number between 0 and 1
+	// console.log(randomNumber);
+
+	// var realRandomNumber = (randomNumber * 100) + 1;
+	// var roundedRandomNumber = Math.floor(realRandomNumber);
+	// console.log(realRandomNumber);
+	// console.log(roundedRandomNumber);
+
+
+	// // Generate random number between 1 and 10 and ask the user for a number alert if they match or not
+	// // Alert if their number is within 2 of random numberOfWills
+	// var randomGuess = Math.floor((Math.random() * 10) + 1);
+	// var userGuess = prompt("Pick a number between 1 and 10");
+	// userGuess = Number(userGuess);
+
+	// if (typeof(userGuess) === "number" && (userGuess <= 10 && userGuess >= 1)) {
+	// 	if (userGuess === randomGuess) {
+	// 		alert("Wow! You guessed it!");
+	// 	} else if (userGuess >= (randomGuess - 2) && userGuess <= (randomGuess + 2)) {
+	// 		alert("Damn that was close!  The number was " + randomGuess);
+	// 	} else {
+	// 		alert("You are way off! The number was "  + randomGuess);
+	// 	}
+	// } else {
+	// 	alert("You must guess a whole number between 1 and 10! By the way the number was " + randomGuess + " jerk!");
+	// }
+
+
+	// Arrays
+	// var nfcSouthTeamOne = "Falcons";
+	// var nfcSouthTeamTwo = "Saints";
+	// var nfcSouthTeamThree = "Panthers";
+	// var nfcSouthTeamFour = "Bucs";
+
+	// var nfcSouth = ["Falcons","Saints","Panthers","Bucs"];
+	// nfcSouth[4] = "Lost Team";
+	// nfcSouth[9] = "Whos this";
+	// // Deletes the last element of the array
+	// nfcSouth.pop();
+	// nfcSouth.pop();
+	// // Puts object after the last element of the array
+	// nfcSouth.push("The Replacements");
+	// // Puts object on the front of the array
+	// nfcSouth.unshift("The First Team");
+	// // Deletes first element of the array
+	// nfcSouth.shift();
+
+
+	// var atlTeams = [
+	// 	"Braves",
+	// 	"Falcons",
+	// 	"Hawks",
+	// 	"Thrashers"
+	// 	]
+
+	// atlTeams.splice(3, 0, "Atlanta Dream"); // Will add element at the position set in first variable
+	// console.log(atlTeams);
+	// atlTeams.splice(4, 1, "Atlanta United"); // Will start at element three and add whatever we give it.  Will remove x staring with 3
+	// console.log(atlTeams);
+
+	// atlTeams.slice(0, 1) // Will start copying at first number, and stop copying at the second number
+	// console.log(atlTeams);
+
+
+	// var dcTeam = ["Rob","Jake","Max","Joe"];
+	// var firstName = "Will";
+
+	// if (firstName === dcTeam[0] || firstName === dcTeam[1] || firstName === dcTeam[2] || firstName === dcTeam[3]) {
+	// 	alert("You work for DigitalCraft!");
+	// } else {
+	// 	alert("You don't work for DC!");
+	// }
+
+	// if (dcTeam.indexOf(firstName) >= 0) {
+	// 	alert("You work for DigitalCraft!");
+	// } else {
+	// 	alert("You don't work for DC!");
+	// }
+	// var message; 
+	// for (i = 0;i < dcTeam.length;i++) {
+	// 	if (firstName === dcTeam[i]) {
+	// 		message = "You work for DC!");	
+	// 	} 
+	// }
+
+	// alert(message);
+
+	// var firstName = "Will";
+	// var dcClass = ["Chance", "Stephen", "Stuart", "Will", "Griffin", "Freddy", "Oliver", "Yoski", "Andrew", "Peter"];
+	// var dcClassRoles = ["The Joker", "The Student", "The Helper", "The Sleeper", "The Ninja", "The Ambitious One", "The Clueless One", "The Silent One", "The Butterfly", "The Chemist (BOOM!)"];
+	// var matchFound = "";
+	// var studentWithRole;
+
+	// for(i = 0;i < dcClass.length;i++){
+	// 	for(j = 0;j < dcClassRoles.length;j++) {
+	// 		var chancesOfTrue = Math.random() * 100;
+	// 		studentWithRole = dcClass[i] + " -- " + dcClassRoles[j]
+	// 		if(chancesOfTrue > 75) {
+	// 			document.write(dcClass[i] + ' ' + dcClassRoles[j] + '<br />');
+	// 		}
+	// 	}
+	// }
+
+	// for(i = 0;i < dcClass.length;i++) {
+	// 	if(firstName === dcClass[i]) {
+	// 		alert("You are a DC Student");
+	// 		break;
+	// 	}
+	// 	console.log(dcClass[i]);
+	// }
+
+	// var className = document.getElementById("class-name");
+
+	// var myName = "Illis Willis aka 6'9 fulla nasty aka Avatar";
+	// var firstChar = myName.slice(0,3);
+	// var otherChar = myName.slice(1);
+	// var properCaseName = firstChar.toUpperCase() + otherChar.toLowerCase();
+
+	// document.write(properCaseName[5]);
+	// for(i = 0;i < properCaseName.length;i++) {
+	// 	document.write(properCaseName[i]);
+	// }
+
+	// var password = prompt("Whats your password");
+	// var message = [];
+	// // Must be between 4 & 8  char 
+	// // must contain no spaces
+	// // must have 1 num
+	// // must have 1 upper case 
+	// // must have 1 lower case
+
+	// if((password.length > 8) || (password.length < 4)) {
+	// 	alert("Your password must be between 4 and 8 characters.");
+	// }
+
+	// for(i = 0;i < password.length;i++) {
+	// 	var passChar = password[i];
+	// 	console.log(passChar);
+
+	// 	if(password.indexOf(" ") !== -1){
+	// 		message.push = "Your password can't have any spaces.";
+	// 	} 
+	// 	if(isNaN(passChar) !== 1) {
+	// 		message.push = "Your password needs a number.";
+	// 	}
+	// 	if(passChar === passChar.toUpperCase()) {
+	// 		message.push = "Your password needs an upper case letter.";
+	// 	}
+	// 	if(passChar === passChar.toLowerCase()) {
+	// 		message.push = "Your password needs a lower case letter.";
+	// 	}
+	// }
+
+	// for(i = 0;i < message.length;i++) {
+	// 	alert(message[i]);
+	// }
+
+	// console.log(firstChar);
+
+function throwDie() {
+	var randomDie = Math.round(Math.random() * 5 + 1);  // Random number between 1 and 6
+	document.images["myDie"].src = "d" + randomDie + ".gif";
+	console.log(randomDie);
+}
+
+function throwDice() {
+	var randomDie1 = Math.round(Math.random() * 5 + 1); 
+	var randomDie2 = Math.round(Math.random() * 5 + 1); // Random number between 1 and 6
+	document.images["myDie"].src = "d" + randomDie1 + ".gif";
+	document.images["myDie2"].src = "d" + randomDie2 + ".gif";
+	console.log(randomDie1);
+	console.log(randomDie2);
+}
+
+function attackDragon() {
+	var randomDie1 = Math.round(Math.random() * 5 + 1); 
+	var randomDie2 = Math.round(Math.random() * 5 + 1); // Random number between 1 and 6
+	var total = randomDie1 + randomDie2;
+	document.images["myDie"].src = "d" + randomDie1 + ".gif";
+	document.images["myDie2"].src = "d" + randomDie2 + ".gif";
+	console.log(randomDie1);
+	console.log(randomDie2);
+
+  // 	   Print out the total role as a number (innerHTML)
+  //       Check and see if the number (total) is >9
+  //           If so, put the message in the #message
+  //           If not, put a different message the #message
+  //       Add a button... "run away"
+  //           if clicked on, add a message to #message
+	var result = document.getElementById("yourRoll");
+	console.log(total);
+
+	if(total > 9) {
+		result.innerHTML = "You slayed the beast!!";
+	} else {
+		result.innerHTML = "You are TOAST!";
+	}
+}
+
+function runAway() {
+	var result = document.getElementById("yourRoll");
+	result.innerHTML = "You got away!";
+}
+</script>
+<div>
+
+</div>
+<div>	
+<!-- 	<input type="button" onclick="throwDie()" value="Throw the die">
+ -->	
+</div>
+
+<div id="the-fight" style="text-align: center;">
+	<img src="dragon.png">
+	<div id="dragon" style="font-size: 30px;">You have encountered a dragon!</div>
+	<div>
+		<img src="d1.gif" name="myDie">
+		<img src="d1.gif" name="myDie2" alt="">
+	</div>
+		<div id="message" style="font-size:20px; margin-top: 20px;">You must roll higher than a 9, to defeat the dragon!</div>
+		<input type="button" onclick="attackDragon()" value="Fight!!">
+		<div id="yourRoll" style="font-size:24px;">Lets Fight!</div>
+		<br />
+		<input type="button" onclick="runAway()" value="Run Away!!">
+</div>
+	
+
