@@ -268,6 +268,20 @@ var theDay = now.getDay();   // Return the numbered day of the week starting wit
 var daysInEnglish = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 var theDayInEnglish = daysInEnglish[theDay];
 
+for(i = 0; i < 10; i++) {
+	console.log(i);
+}
+
+var j = 15;
+while(j < 10) {
+	console.log(j);
+	j++;
+}
+var k = 15;
+do {
+	console.log(k);
+	k++;
+} while(k < 10)
 
 
 function throwDie() {
@@ -290,12 +304,15 @@ var FLAME = 3;
 var STICK = 1;
 var SWORD = 3;
 var BOMB = 6;
+var wins = 0;
+var losses = 0;
 // var dragon = document.getElementById("dragon");
 // var user = document.getElementById("user");
 
 function attackDragon(weapon) {
 	var user = document.getElementById("user");
 	var dragon = document.getElementById("dragon");
+	var buttons = document.getElementsByClassName("game-buttons");
 	var randomDie1 = Math.round(Math.random() * 5 + 1); 
 	var randomDie2 = Math.round(Math.random() * 5 + 1); // Random number between 1 and 6
 	var total = randomDie1 + randomDie2;
@@ -344,22 +361,50 @@ function attackDragon(weapon) {
 
 	console.log(total);
 
+	if(yourLife <= 0) {
+		yourLife = 0;
+		result.innerHTML = "You're DEAD buddy!!";
+		for(i = 0;i < buttons.length;i++) {
+			buttons[i].disabled = true;
+		}
+		losses++;
+	} 
+	if(dragonLife <=0) {
+		dragonLife = 0;
+		result.innerHTML = "You are AMAZING!! You slayed the dragon!";
+		for(i = 0;i < buttons.length;i++) {
+			buttons[i].disabled = true;
+		}
+		wins++;
+	}
+
+	user.innerHTML = yourLife;
+	dragon.innerHTML = dragonLife;
+	document.getElementById("win").innerHTML = wins;
+	document.getElementById("loss").innerHTML = losses;
+}
+
+function reset() {
+	var result = document.getElementById("yourRoll");
+	var user = document.getElementById("user");
+	var dragon = document.getElementById("dragon");
+	var buttons = document.getElementsByClassName("game-buttons");
+
+	result.innerHTML = "Let's fight!";
+	yourLife = 6;
+	dragonLife = 12;
 	user.innerHTML = yourLife;
 	dragon.innerHTML = dragonLife;
 
-	if(yourLife <= 0) {
-		result.innerHTML = "You're DEAD buddy!!";
-	} 
-	if(dragonLife <=0) {
-		result.innerHTML = "You are AMAZING!! You slayed the dragon!";
+	for(i = 0;i < buttons.length;i++) {
+			buttons[i].disabled = false;
 	}
+
 }
 
 function runAway() {
 	var result = document.getElementById("yourRoll");
 	result.innerHTML = "You got away!";
-	yourLife = 6;
-	dragonLife = 12
 }
 </script>
 <div>
@@ -372,20 +417,22 @@ function runAway() {
 
 <div id="the-fight" style="text-align: center;">
 	<img src="dragon.png">
+	<div style="font-size: 20px;">WINS: <span id="win">0</span>	LOSSES: <span id="loss">0</span></div>
 	<div id="dragon-title" style="font-size: 30px;">You have encountered a dragon!</div>
 	<div>
 		<img src="d1.gif" name="myDie">
 		<img src="d1.gif" name="myDie2" alt="">
 	</div>
 		<div id="message" style="font-size:20px; margin-top: 20px;">You must use a weapon to defeat the dragon!</div>
-		<input type="button" onclick="attackDragon('stick')" value="Hit em with a stick!!">
-		<input type="button" onclick="attackDragon('sword')" value="Use your sword!!">
-		<input type="button" onclick="attackDragon('bomb')" value="Throw a bomb!!">
+		<input class="game-buttons" type="button" onclick="attackDragon('stick')" value="Hit em with a stick!!">
+		<input class="game-buttons" type="button" onclick="attackDragon('sword')" value="Use your sword!!">
+		<input class="game-buttons" type="button" onclick="attackDragon('bomb')" value="Throw a bomb!!">
 		<div id="yourRoll" style="font-size:24px;">Lets Fight!</div>
 		<br />
 		<div>YOUR LIFE: <span id="user">6</span></div>
 		<div>DRAGON LIFE: <span id="dragon">12</span></div>
-		<input type="button" onclick="runAway()" value="Run Away!!">
+		<input type="button" onclick="reset()" value="Reset">
+		<input class="game-buttons" type="button" onclick="runAway()" value="Run Away!!">
 </div>
 	
 
